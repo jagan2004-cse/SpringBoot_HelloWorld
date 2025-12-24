@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="min-h-[70dvh] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[3rem] p-[3rem]">
+    {% for item in products %}
+    <div onclick="window.location.href ='/products/{{ item.id }}' "
+        class="flex flex-col gap-2 items-center p-[1rem] h-[20rem] cursor-pointer border-2 border-black transition-all hover:scale-[1.01] hover:shadow-2xl overflow-hidden">
+        <img src="{{ item.image.url }}" alt="{{ item.name }}" class="w-1/2 h-1/2">
+        <div class="w-[25ch] text-ellipsis text-center whitespace-nowrap overflow-hidden">{{ item.name }}</div>
+        <div class="bg-green-700 rounded-lg text-white p-[.1rem_.5rem]">&#x20B9;{{ item.price }}</div>
+        <div class="w-[25ch] line-clamp-3 overflow-hidden text-center text-ellipsis">{{ item.description }}</div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

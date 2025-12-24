@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block main %}
+<div class="min-h-[100dvh] pb-[2rem] flex flex-col">
+  <div class="flex items-center justify-between px-[5vw] h-[10dvh]">
+    <div class="font-bold text-3xl text-sky-500">Grocery Shop</div>
+    <div class="flex items-center justify-center text-lg gap-6">
+      <a href="/home" class="">Home</a>
+      <a href="/products" class="">Products</a>
+      <a href="/features" class="">Features</a>
+      <a href="/pricing" class="">Pricing</a>
+      <a href="/faqs" class="">FAQs</a>
+      <a href="/about" class="">About</a>
+    </div>
+    <div class="flex items-center text-lg font-medium gap-[2rem]">
+      {% if user.username %}
+      <div class="">Hello {{ user.username }} !</div>
+      <div onclick="window.location.href='/cart'" class="size-[2rem] cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="black"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/></svg></div>
+      <a
+        href="/logout"
+        class="h-[6dvh] w-[7vw] flex justify-center items-center rounded-xl border-4 border-sky-400 transition-colors hover:text-white hover:bg-sky-400"
+      >
+        Logout
+      </a>
+      {% else %}
+      <a
+        href="/login"
+        class="h-[6dvh] w-[7vw] flex justify-center items-center rounded-xl border-4 border-sky-400 transition-colors hover:text-white hover:bg-sky-400"
+      >
+        Login
+      </a>
+      <a
+        href="/signup"
+        class="h-[6dvh] w-[7vw] flex justify-center items-center rounded-xl border-4 border-sky-400 text-white bg-sky-400 hover:bg-white hover:text-black"
+      >
+        Sign up
+      </a>
+      {% endif %}
+    </div>
+  </div>
+  <hr class="h-[.1rem] bg-black" />
+  {% block content %}{% endblock content %}
+  <hr class="h-[.1rem] bg-black" />
+  {% include "footer.html" %}
+</div>
+
+{% endblock main %}

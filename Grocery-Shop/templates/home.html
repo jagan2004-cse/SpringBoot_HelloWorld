@@ -1,0 +1,23 @@
+{% extends "index.html" %} {% load static %} {% block content %}
+
+<div class="flex flex-col items-center justify-center px-[5rem] min-h-[70dvh]">
+  <div class="text-4xl font-bold py-[3rem] text-sky-500">
+    Online Grocery Shop
+  </div>
+  <div
+    class="aspect-video w-[60vw]"
+    style="
+      background-image: url({% static "images/bgimage.jpg" %});
+      background-position: top 10%;
+      background-size: cover;
+    "
+  ></div>
+  <div
+    onclick="window.location.href='/products'"
+    class="bg-yellow-500 hover:bg-yellow-300 text-violet-800 p-[.7rem_1.5rem] text-lg font-bold my-[2rem] rounded-xl cursor-pointer"
+  >
+    Shop Now
+  </div>
+</div>
+
+{% endblock content %}
